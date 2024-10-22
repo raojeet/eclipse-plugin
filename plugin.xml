@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<plugin
+   xmlns="http://www.eclipse.org/plugins"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.eclipse.org/plugins
+   http://www.eclipse.org/plugins/schema/plugins_3_0_0.xsd">
+
+   <!-- Define the command -->
+   <extension
+        point="org.eclipse.ui.commands">
+      <command
+         id="smartqa.commands.openTestCasePanel"
+         name="Open SmartQA Copilot Panel">
+      </command>
+   </extension>
+
+   <!-- Define the handler for the command -->
+   <extension
+        point="org.eclipse.ui.handlers">
+      <handler
+         commandId="smartqa.commands.openTestCasePanel"
+         class="smartqa.handlers.OpenTestCasePanelHandler">
+      </handler>
+   </extension>
+
+   <!-- Define the menu contribution -->
+   <extension
+        point="org.eclipse.ui.menus">
+      <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+            label="SmartQA"
+            id="smartqa.menu">
+            <command
+               commandId="smartqa.commands.openTestCasePanel"
+               label="Open Copilot Panel"
+               style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+   <!-- Define the toolbar contribution -->
+   <extension
+        point="org.eclipse.ui.menus">
+      <toolbarContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <command
+            commandId="smartqa.commands.openTestCasePanel"
+            label="Open Copilot Panel"
+            icon="icons/sample_icon.png"
+            tooltip="Open SmartQA Copilot Panel"
+            style="push">
+         </command>
+      </toolbarContribution>
+   </extension>
+
+</plugin>
